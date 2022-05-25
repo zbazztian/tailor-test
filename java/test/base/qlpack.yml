@@ -1,0 +1,7 @@
+name: zbazztian/java-tailor-base-tests
+groups: [java, test]
+dependencies:
+    codeql/java-all: "*"
+    zbazztian/java-tailor-base: "*"
+extractor: java
+tests: .

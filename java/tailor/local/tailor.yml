@@ -1,0 +1,9 @@
+in:
+  codeql/java-queries: '*'
+out:
+  zbazztian/java-local-queries: '*'
+dependencies:
+  zbazztian/java-tailor-base: '*'
+imports:
+  - module: TailorCustomizations
+    files: 'Security/CWE/CWE-022/TaintedPath.ql'

@@ -1,0 +1,9 @@
+dependencies:
+  codeql/java-all: '*'
+  zbazztian/java-tailor-base: '*'
+groups: java
+library: false
+name: zbazztian/java-field-queries
+version: 0.0.1
+suites: suites
+defaultSuiteFile: suites/default.qls

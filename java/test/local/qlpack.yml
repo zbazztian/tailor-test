@@ -1,0 +1,7 @@
+name: zbazztian/java-local-queries-tests
+groups: [java, test]
+dependencies:
+    codeql/java-all: "*"
+    zbazztian/java-local-queries: "*"
+extractor: java
+tests: .
