@@ -18,7 +18,6 @@ jobs:
       uses: github/codeql-action/init@v2
     - id: cliversion
       run: |
-        "${{ steps.downloadcli.outputs.codeql-path }}" version -q
         echo "::set-output name=v::" $(${{ steps.downloadcli.outputs.codeql-path }} version -q)
 
   build-and-test-packs:
@@ -39,10 +38,9 @@ jobs:
       env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-         echo "howdy"
          echo ${{ needs.determine-actions-cli-version.outputs.version }}
          gh extensions install github/gh-codeql
          gh extensions install zbazztian/gh-tailor
-         gh codeql download latest
-         gh codeql set-version latest
+         gh codeql download ${{ needs.determine-actions-cli-version.outputs.version }}
+         gh codeql set-version ${{ needs.determine-actions-cli-version.outputs.version }}
          ./tests.sh "${{ matrix.language }}" --publish
