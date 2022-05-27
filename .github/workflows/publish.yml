@@ -1,0 +1,32 @@
+name: "Publish"
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-test-packs:
+    name: Build, Test and Publish CodeQL Packs
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'java' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build, Test and Publish
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+         gh extensions install github/gh-codeql
+         gh extensions install zbazztian/gh-tailor
+         gh codeql download latest
+         gh codeql set-version latest
+         ./tests.sh "${{ matrix.language }}" --publish
