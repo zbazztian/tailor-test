@@ -41,6 +41,6 @@ jobs:
          echo ${{ needs.determine-actions-cli-version.outputs.version }}
          gh extensions install github/gh-codeql
          gh extensions install zbazztian/gh-tailor
-         gh codeql download ${{ needs.determine-actions-cli-version.outputs.version }}
-         gh codeql set-version ${{ needs.determine-actions-cli-version.outputs.version }}
+         gh codeql download v${{ needs.determine-actions-cli-version.outputs.version }}
+         gh codeql set-version v${{ needs.determine-actions-cli-version.outputs.version }}
          ./tests.sh "${{ matrix.language }}" --publish
