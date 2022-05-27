@@ -17,11 +17,9 @@ jobs:
     - id: downloadcli
       uses: github/codeql-action/init@v2
     - id: cliversion
-      shell: bash
       run: |
-        VERSION="${{ steps.downloadcli.outputs.codeql-path }}" version -q
-        echo "$VERSION"
-        echo "::set-output name=v::$VERSION"
+        "${{ steps.downloadcli.outputs.codeql-path }}" version -q
+        echo "::set-output name=v::""${{ steps.downloadcli.outputs.codeql-path }}" version -q
 
   build-and-test-packs:
     name: Build, Test and Publish CodeQL Packs
