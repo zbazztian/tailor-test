@@ -56,7 +56,7 @@ for P in $PACKS; do
   gh \
     tailor compile \
     --strict \
-    --autobump \
+    --auto-version \
     "$PACK"
 
   RES="$?"

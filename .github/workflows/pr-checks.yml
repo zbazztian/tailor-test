@@ -21,4 +21,11 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build and Test
-      run: build.sh "${{ matrix.language }}"
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+         gh extensions install github/gh-codeql
+         gh extensions install zbazztian/gh-tailor
+         gh codeql download latest
+         gh codeql set-version latest
+         build.sh "${{ matrix.language }}"
