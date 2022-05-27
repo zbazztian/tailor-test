@@ -28,4 +28,4 @@ jobs:
          gh extensions install zbazztian/gh-tailor
          gh codeql download latest
          gh codeql set-version latest
-         build.sh "${{ matrix.language }}"
+         ./tests.sh "${{ matrix.language }}"
