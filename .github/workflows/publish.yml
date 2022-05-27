@@ -17,6 +17,7 @@ jobs:
     - id: downloadcli
       uses: github/codeql-action/init@v2
     - id: cliversion
+      shell: bash
       run: |
         VERSION="${{ steps.downloadcli.outputs.codeql-path }}" version -q
         echo "$VERSION"
