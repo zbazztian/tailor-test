@@ -1,0 +1,12 @@
+{
+    "provide": [
+        "java/src/base/qlpack.yml",
+        "java/test/base/qlpack.yml",
+
+        "java/src/field-queries/qlpack.yml",
+        "java/test/field-queries/qlpack.yml",
+
+        "java/src/local/qlpack.yml",
+        "java/test/local/qlpack.yml"
+    ]
+}
