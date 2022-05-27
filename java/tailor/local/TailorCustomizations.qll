@@ -12,7 +12,7 @@ class MyTailorSettings extends Settings::Provider {
     // INSERT YOUR SETTINGS HERE //
     // For example:
     //
-    key = "java.local_sources" and value = "true"
+    key = "java.local_sources" and value = "false"
     // or
     // key = "java.lenient_taintflow" and value = "false"
   }
