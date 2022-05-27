@@ -19,7 +19,7 @@ jobs:
     - id: cliversion
       run: |
         "${{ steps.downloadcli.outputs.codeql-path }}" version -q
-        echo "::set-output name=v::""${{ steps.downloadcli.outputs.codeql-path }}" version -q
+        echo "::set-output name=v::" $(${{ steps.downloadcli.outputs.codeql-path }} version -q)
 
   build-and-test-packs:
     name: Build, Test and Publish CodeQL Packs
